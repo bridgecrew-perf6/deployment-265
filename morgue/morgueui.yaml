@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csi-morgue-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csi-morgue-ui
+      tier: frontend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: csi-morgue-ui
+        module: rms
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - image: harbor.cs.local/vidaplus/morgue-ui:4.1.4.0-a1
+          imagePullPolicy: IfNotPresent
+          name: csi-morgue-ui
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            limits:
+              memory: 1Gi
+            requests:
+              cpu: 25m
+              memory: 256Mi
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csi-morgue-ui-service
+  name: csi-morgue-ui-service
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: csi-morgue-ui
+  type: ClusterIP

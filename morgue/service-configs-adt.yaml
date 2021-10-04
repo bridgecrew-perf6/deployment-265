@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  CSI_DB_ADT_URL: jdbc:postgresql://postgres:5432/csi-adt-request
+  CSI_DB_DENTAL_URL: jdbc:postgresql://postgres:5432/CSI-JAVA-DS-DENTAL-CORE
+  CSI_DB_MASTERDATA_URL: jdbc:postgresql://postgres:5432/csi-amd-masterdata
+  CSI_DB_MORGUE_URL: jdbc:postgresql://postgres:5432/csi-morgue
+  CSI_DB_RESERVATION_URL: jdbc:postgresql://postgres:5432/csi-rms-reservation
+  CSI_DB_RESOURCE_URL: jdbc:postgresql://postgres:5432/csi-resource-registry
+  SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
+  SPRING_JPA_DATABASE-PLATFORM: org.hibernate.dialect.PostgreSQLDialect
+  active_profile: java-dev
+kind: ConfigMap
+metadata:
+  name: service-configs-adt
