@@ -8,18 +8,12 @@ spec:
   strategy:
     canary:
       steps:
-      - setWeight: 20
+     - setWeight: 20
       - pause:
-          duration: "60s"
-      - setWeight: 20
+          duration: "30s"
+      - setWeight: 50
       - pause:
-          duration: "60s"
-      - setWeight: 20
-      - pause:
-          duration: "60s"
-      - setWeight: 20
-      - pause:
-          duration: "60s"
+          duration: "30s"
   selector:
     matchLabels:
       app: mynginx
