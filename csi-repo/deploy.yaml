@@ -14,9 +14,6 @@ spec:
       - setWeight: 40
       - pause:
           duration: "30s"
-      - setWeight: 40
-      - pause:
-          duration: "30s"
   selector:
     matchLabels:
       app: mynginx
@@ -27,7 +24,7 @@ spec:
     spec:
       containers:
       - name: mynginx
-        image: geoffchalk/nginxdemos
+        image: martivo/nginxdemos
         ports:
           - containerPort: 80
   #      lifecycle:
