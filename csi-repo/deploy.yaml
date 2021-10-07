@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: mynginx
-        image: nginxdemos/hello
+        image: nginxdemos/nginx-hello
         ports:
           - containerPort: 80
   #      lifecycle:
