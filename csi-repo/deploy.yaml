@@ -1,10 +1,10 @@
 ---
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: my-deployment
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: mynginx
