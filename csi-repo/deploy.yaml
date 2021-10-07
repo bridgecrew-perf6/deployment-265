@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: mynginx
-        image: argoproj/rollouts-demo:blue
+        image: nginxdemos/hello
         ports:
           - containerPort: 80
   #      lifecycle:
