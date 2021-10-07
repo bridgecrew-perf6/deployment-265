@@ -14,7 +14,7 @@ spec:
       - setWeight: 40
       - pause:
           duration: "30s"
-      - setWeight: 60
+      - setWeight: 40
       - pause:
           duration: "30s"
   selector:
@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: mynginx
-        image: martivo/nginxdemos
+        image: geoffchalk/nginxdemos
         ports:
           - containerPort: 80
   #      lifecycle:
