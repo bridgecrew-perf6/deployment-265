@@ -1,51 +1,46 @@
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
-  name: colorapi
-  labels:
-    app: colorapi
+  name: my-deployment
 spec:
   replicas: 5
-  revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: colorapi
+      app: mynginx
   template:
     metadata:
       labels:
-        app: colorapi
+        app: mynginx
     spec:
       containers:
-      - name: colorapi
+      - name: mynginx
         image: nginx
-        imagePullPolicy: Always
         ports:
-        - name: web
-          containerPort: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: colorapi
-spec:
-  ports:
-  - port: 80
-    targetPort: 8080
-  selector:
-    app: colorapi
-  type: ClusterIP
-  
+          - containerPort: 80
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: my-ingress
+  name: myingress
 spec:
   rules:
-  - host: shan.sample.com
+  - host: sample.web.lk
     http:
       paths:
       - backend:
-          serviceName: colorapi
+          serviceName: nginxing-service
           servicePort:  80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxing-service
+spec:
+  selector:
+    app:  mynginx
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
