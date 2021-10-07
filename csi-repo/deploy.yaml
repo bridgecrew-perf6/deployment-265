@@ -4,11 +4,11 @@ kind: Rollout
 metadata:
   name: my-deployment
 spec:
-  replicas: 3
+  replicas: 5
   strategy:
     canary:
       steps:
-      - setWeight: 20
+      - setWeight: 50
       - pause:
           duration: "30s"
       - setWeight: 50
@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: mynginx
-        image: geoffchalk/nginxdemos
+        image: martivo/nginxdemos
         ports:
           - containerPort: 80
   #      lifecycle:
