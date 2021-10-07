@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: mynginx
-        image: madhavanss/nginxdemos
+        image: martivo/nginxdemos
         ports:
           - containerPort: 80
   #      lifecycle:
