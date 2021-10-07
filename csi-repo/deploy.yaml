@@ -20,9 +20,6 @@ spec:
       - setWeight: 20
       - pause:
           duration: "60s"
-      - setWeight: 20
-      - pause:
-          duration: "60s"
   selector:
     matchLabels:
       app: mynginx
