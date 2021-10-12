@@ -9,11 +9,16 @@ spec:
     canary:
       steps:
       - setWeight: 20
-      - pause:
-          duration: "60s"
+      - pause: {}
       - setWeight: 40
       - pause:
-          duration: "60s"
+      duration: 10
+      - setWeight: 60
+      - pause:
+      duration: 10
+      - setWeight: 80
+      - pause:
+      duration: 10
   selector:
     matchLabels:
       app: mynginx
@@ -24,7 +29,7 @@ spec:
     spec:
       containers:
       - name: mynginx
-        image: martivo/nginxdemos
+        image: geoffchalk/nginxdemos
         ports:
           - containerPort: 80
   #      lifecycle:
