@@ -6,8 +6,6 @@ namePrefix: kustomize-
 resources:
 - Deployment.yaml
 
-commonAnnotations:
-  channel: roshan
 
-commonLabels:
+Labels:
   owner: roshan
