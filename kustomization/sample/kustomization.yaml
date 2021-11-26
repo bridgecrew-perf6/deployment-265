@@ -10,6 +10,8 @@ resources:
 commonAnnotations:
   channel: roshan
 
-...
+commonLabels:
+  owner: roshan
+
 images:
   - newName: nginxdemos/hello
