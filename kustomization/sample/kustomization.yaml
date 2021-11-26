@@ -9,3 +9,7 @@ resources:
 
 commonAnnotations:
   channel: roshan
+
+images:
+  - name: nginxdemos/hello
+    newTag: v1
