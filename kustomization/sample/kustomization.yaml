@@ -12,6 +12,3 @@ commonAnnotations:
 
 commonLabels:
   owner: roshan
-
-images:
-  - newName: nginxdemos/hello
