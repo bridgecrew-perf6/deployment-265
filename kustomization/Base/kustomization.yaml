@@ -6,7 +6,3 @@ namePrefix: kustomize-
 resources:
 - Deployment.yaml
 - service.yaml
-
-
-Labels:
-  owner: roshan
