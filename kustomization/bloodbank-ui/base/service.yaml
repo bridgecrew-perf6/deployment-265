@@ -5,7 +5,7 @@ metadata:
   labels:
     app: csi-bloodbank-ui-service
   name: csi-bloodbank-ui-service
-  namespace: csi-dev
+  namespace: vidacom
 spec:
   ports:
     - port: 80
