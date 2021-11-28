@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../../base
+#resources:
+#- Deployment.yaml
+#- service.yaml
+
+patchesStrategicMerge:
+- replica-count.yaml
+
+images:
+- name: harbor.cs.local/vidaplus/e-consent-ui
+  newTag: ECN.V2.0.5
