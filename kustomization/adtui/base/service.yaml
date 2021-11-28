@@ -5,6 +5,7 @@ metadata:
   labels:
     app: csi-adt-ui-service
   name: csi-adt-ui-service
+  namespace: vidacom
 spec:
   ports:
     - port: 80

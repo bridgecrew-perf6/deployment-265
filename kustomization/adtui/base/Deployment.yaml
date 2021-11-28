@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-adt-ui
+  namespace: vidacom
 spec:
   replicas: 1
   selector:
