@@ -10,5 +10,5 @@ patchesStrategicMerge:
 - replica-count.yaml
 
 images:
-- name: harbor.cs.local/vidaplus/adt-ui
-  newTag: 4.5.34.0
+- name: harbor.cs.local/vidaplus/billing-ui
+  newTag: 4.5.36.0
