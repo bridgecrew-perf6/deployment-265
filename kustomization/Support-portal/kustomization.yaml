@@ -7,5 +7,5 @@ resources:
 
 namePrefix: kustomize-
 
-commonLabels:
-  - roshan
+commonAnnotations:
+  channel: roshan
