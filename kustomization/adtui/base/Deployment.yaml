@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-adt-ui
-  namespace: vidacom
 spec:
   replicas: 1
   selector:
@@ -19,7 +18,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: 'harbor.cs.local/vidaplus/adt-ui:4.3.39.1'
+        - image: harbor.cs.local/vidaplus/adt-ui:4.3.39.0
           imagePullPolicy: IfNotPresent
           name: csi-adt-ui
           ports:
@@ -33,3 +32,4 @@ spec:
               memory: 256Mi
       imagePullSecrets:
         - name: regcred
+
