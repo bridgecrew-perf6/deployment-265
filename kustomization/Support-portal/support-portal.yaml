@@ -42,7 +42,7 @@ spec:
                   name: support-portal-secret
             - name: APP_HOST
               value: 'https://vida.cloudsolutions.com.sa/support'
-          image: 'harbor.cs.local/vidaplus/csi-support-portal-api:v2.1
+          image: harbor.cs.local/vidaplus/csi-support-portal-api:v2.1
           imagePullPolicy: IfNotPresent
           name: csi-support-portal
           ports:
@@ -56,4 +56,3 @@ spec:
               memory: 256Mi
       imagePullSecrets:
         - name: regcred
-
