@@ -56,4 +56,3 @@ spec:
               memory: 256Mi
       imagePullSecrets:
         - name: regcred
-
