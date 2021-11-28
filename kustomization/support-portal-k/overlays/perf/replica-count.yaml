@@ -2,5 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-support-portal
+  namespace: csi-perf
 spec:
-  replicas: 3
+  replicas: 1

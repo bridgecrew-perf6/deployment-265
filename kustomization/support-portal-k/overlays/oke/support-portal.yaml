@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-support-portal
-  namespace: csi-dev
+  namespace: csi-perf
 spec:
   replicas: 1
   selector:
@@ -21,16 +21,28 @@ spec:
       containers:
         - env:
             - name: HOST
-              value: 172.15.100.146
-            - name: USER
-              value: support
-            - name: PASS
-              value: 2wsx@WSX
+              valueFrom:
+                configMapKeyRef:
+                  key: HOST
+                  name: support-portal-config
             - name: DB
-              value: supportportal
+              valueFrom:
+                configMapKeyRef:
+                  key: DB
+                  name: support-portal-config
+            - name: USER
+              valueFrom:
+                secretKeyRef:
+                  key: USER
+                  name: support-portal-secret
+            - name: PASS
+              valueFrom:
+                secretKeyRef:
+                  key: PASS
+                  name: support-portal-secret
             - name: APP_HOST
-              value: 'https://csi.dev.cloudsol.lk/support'
-          image: harbor.cs.local/vidaplus/csi-support-portal-api:3.0.0.0
+              value: 'https://csi.perf.cloudsolution.lk/support'
+          image: 'harbor.cs.local/vidaplus/csi-support-portal-api:${parameters.Tag}'
           imagePullPolicy: IfNotPresent
           name: csi-support-portal
           ports:
@@ -44,4 +56,3 @@ spec:
               memory: 256Mi
       imagePullSecrets:
         - name: regcred
-
