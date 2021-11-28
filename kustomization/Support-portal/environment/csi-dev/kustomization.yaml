@@ -3,6 +3,10 @@ kind: Kustomization
 
 namePrefix: kustomize-
 
+images:
+- name: harbor.cs.local/vidaplus/csi-support-portal-api
+  newTag: 3.0.0.0
+
 resources:
 - Deployment.yaml
 - service.yaml
@@ -10,6 +14,3 @@ resources:
 #patches:
 #  - replica-count.yaml
 
-#images:
-#- name:
-#  newTag:
