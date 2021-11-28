@@ -3,13 +3,13 @@ kind: Kustomization
 
 namePrefix: kustomize-
 
-images:
-- name: harbor.cs.local/vidaplus/csi-support-portal-api
-  newTag: 3.0.0.1
+#images:
+#- name: harbor.cs.local/vidaplus/csi-support-portal-api
+#  newTag: 3.0.0.1
 
 resources:
 - support-portal.yaml
 - service.yaml
 
-patchesStrategicMerge:
-- replica-count.yaml
+#patchesStrategicMerge:
+#- replica-count.yaml
