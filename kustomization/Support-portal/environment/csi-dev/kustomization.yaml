@@ -10,7 +10,8 @@ namePrefix: kustomize-
 resources:
 - support-portal.yaml
 - service.yaml
+
 patches:
-  - replica-count.yaml
+- replica-count.yaml
   #patchesStrategicMerge:
 #- replica-count.yaml
