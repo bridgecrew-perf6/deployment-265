@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csi-bm-invoice-ui-service
+  name: csi-bm-invoice-ui-service
+  namespace: vidacom
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: csi-bm-invoice-ui
+  type: ClusterIP

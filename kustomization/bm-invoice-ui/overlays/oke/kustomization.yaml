@@ -1,0 +1,14 @@
+piVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../../base
+#resources:
+#- Deployment.yaml
+#- service.yaml
+
+patchesStrategicMerge:
+- replica-count.yaml
+
+images:
+- name: harbor.cs.local/vidaplus/bm-invoice-ui
+  newTag: 4.2.49.0

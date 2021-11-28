@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-bm-invoice-ui
-  namespace: csi-dev
+  namespace: vidacom
 spec:
   replicas: 1
   selector:
@@ -40,7 +40,7 @@ metadata:
   labels:
     app: csi-bm-invoice-ui-service
   name: csi-bm-invoice-ui-service
-  namespace: csi-dev
+  namespace: vidacom
 spec:
   ports:
     - port: 80
