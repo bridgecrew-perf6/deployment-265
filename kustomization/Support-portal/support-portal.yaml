@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csi-support-portal
+  namespace: vidacom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csi-support-portal
+      tier: frontend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: csi-support-portal
+        module: portal
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - env:
+            - name: HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: HOST
+                  name: support-portal-config
+            - name: DB
+              valueFrom:
+                configMapKeyRef:
+                  key: DB
+                  name: support-portal-config
+            - name: USER
+              valueFrom:
+                secretKeyRef:
+                  key: USER
+                  name: support-portal-secret
+            - name: PASS
+              valueFrom:
+                secretKeyRef:
+                  key: PASS
+                  name: support-portal-secret
+            - name: APP_HOST
+              value: 'https://vida.cloudsolutions.com.sa/support'
+          image: 'harbor.cs.local/vidaplus/csi-support-portal-api:v2.1
+          imagePullPolicy: IfNotPresent
+          name: csi-support-portal
+          ports:
+            - containerPort: 3000
+              name: http
+          resources:
+            limits:
+              memory: 1Gi
+            requests:
+              cpu: 25m
+              memory: 256Mi
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: csi-support-portal-service
+  namespace: vidacom
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: csi-support-portal
+  type: ClusterIP
