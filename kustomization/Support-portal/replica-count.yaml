@@ -3,4 +3,4 @@ kind: Deployment
 metadata:
   name: csi-support-portal
 spec:
-  replicas: 2
+  replicas: 3

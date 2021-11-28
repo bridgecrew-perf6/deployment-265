@@ -30,7 +30,7 @@ spec:
               value: supportportal
             - name: APP_HOST
               value: 'https://csi.dev.cloudsol.lk/support'
-          image: harbor.cs.local/vidaplus/csi-support-portal-api:3.0.0.1
+          image: harbor.cs.local/vidaplus/csi-support-portal-api:3.0.0.0
           imagePullPolicy: IfNotPresent
           name: csi-support-portal
           ports:
@@ -44,3 +44,4 @@ spec:
               memory: 256Mi
       imagePullSecrets:
         - name: regcred
+
