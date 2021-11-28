@@ -98,17 +98,4 @@ spec:
               memory: 1Gi
       imagePullSecrets:
         - name: regcred
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: csi-rms-morgue
-  name: csi-rms-morgue
-spec:
-  ports:
-    - port: 80
-      targetPort: 80
-  selector:
-    app: csi-rms-morgue
-  type: ClusterIP
+

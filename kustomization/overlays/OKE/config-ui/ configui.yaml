@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csi-config-ui
+  namespace: vidacom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csi-config-ui
+      tier: frontend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: csi-config-ui
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - image: 'harbor.cs.local/vidaplus/base-ui:${parameters.Tag}'
+          imagePullPolicy: IfNotPresent
+          name: csi-config-ui
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            limits:
+              memory: 1Gi
+            requests:
+              cpu: 25m
+              memory: 256Mi
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csi-config-ui-service
+  name: csi-config-ui-service
+  namespace: vidacom
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: csi-config-ui
+  type: ClusterIP

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csi-lab-labg-ui
+  namespace: vidacom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csi-lab-labg-ui
+      tier: frontend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: csi-lab-labg-ui
+        module: lab
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - image: 'harbor.cs.local/vidaplus/lab-ui:${parameters.Tag}'
+          imagePullPolicy: IfNotPresent
+          name: csi-lab-labg-ui
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            limits:
+              memory: 256Mi
+            requests:
+              cpu: 25m
+              memory: 256Mi
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csi-lab-labg-ui-service
+  name: csi-lab-labg-ui-service
+  namespace: vidacom
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: csi-lab-labg-ui
+  type: ClusterIP

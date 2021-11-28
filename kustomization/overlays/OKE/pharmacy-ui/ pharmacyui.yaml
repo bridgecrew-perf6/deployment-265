@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csi-pharmacy-ui
+  namespace: vidacom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csi-pharmacy-ui
+      tier: frontend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: csi-pharmacy-ui
+        module: pharmacy
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - image: 'harbor.cs.local/vidaplus/pharmacy-ui:${parameters.Tag}'
+          imagePullPolicy: IfNotPresent
+          name: csi-pharmacy-ui
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            limits:
+              memory: 1Gi
+            requests:
+              cpu: 25m
+              memory: 256Mi
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csi-pharmacy-ui-service
+  name: csi-pharmacy-ui-service
+  namespace: vidacom
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: csi-pharmacy-ui
+  type: ClusterIP
