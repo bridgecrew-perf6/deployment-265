@@ -9,6 +9,7 @@ namePrefix: kustomize-
 
 resources:
 - adtui.yaml
+- service.yaml
 
 
 

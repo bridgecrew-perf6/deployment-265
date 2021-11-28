@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csi-adt-ui-service
+  name: csi-adt-ui-service
+  namespace: vidacom
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: csi-adt-ui
+  type: ClusterIP
