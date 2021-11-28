@@ -11,6 +11,6 @@ resources:
 - Deployment.yaml
 - service.yaml
 
-#patches:
-#  - replica-count.yaml
+patches:
+  - replica-count.yaml
 
