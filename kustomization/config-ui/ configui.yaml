@@ -32,18 +32,4 @@ spec:
               memory: 256Mi
       imagePullSecrets:
         - name: regcred
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: csi-config-ui-service
-  name: csi-config-ui-service
-  namespace: vidacom
-spec:
-  ports:
-    - port: 80
-      targetPort: 80
-  selector:
-    app: csi-config-ui
-  type: ClusterIP
+
