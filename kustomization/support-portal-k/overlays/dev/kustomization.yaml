@@ -3,7 +3,7 @@ kind: Kustomization
 bases:
 - ../../base
 patchesStrategicMerge:
-- support-portal.yaml
+- replica-count.yaml
 
 images:
 - name: harbor.cs.local/vidaplus/csi-support-portal-api
