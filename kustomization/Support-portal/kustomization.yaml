@@ -5,3 +5,4 @@ namePrefix: kustomize-
 
 resources:
 - support-portal.yaml
+- service.yaml
