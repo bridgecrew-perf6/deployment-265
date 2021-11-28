@@ -11,4 +11,4 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/bloodbank-ui
-  newTag: 4.1.1.1
+  newTag: 4.1.6.0
