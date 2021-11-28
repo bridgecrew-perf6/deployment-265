@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: csi-support-portal
-  namespace: csi-dev
+  name: csi-approval-ui
+  namespace: vidacom
 spec:
-  replicas: 3
+  replicas: 1

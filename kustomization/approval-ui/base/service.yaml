@@ -5,7 +5,7 @@ metadata:
   labels:
     app: csi-approval-ui-service
   name: csi-approval-ui-service
-  namespace: csi-dev
+  namespace: vidacom
 spec:
   ports:
     - port: 80

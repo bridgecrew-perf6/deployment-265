@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-approval-ui
-  namespace: csi-dev
+  namespace: vidacom
 spec:
   replicas: 1
   selector:
