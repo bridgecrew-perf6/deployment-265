@@ -1,0 +1,4 @@
+bases:
+  - ../../Support-portal
+patches:
+  - replica-count.yaml

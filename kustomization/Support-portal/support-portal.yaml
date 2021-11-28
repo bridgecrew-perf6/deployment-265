@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-support-portal
-  namespace: vidacom
+  namespace: csi-dev
 spec:
   replicas: 1
   selector:
@@ -21,28 +21,16 @@ spec:
       containers:
         - env:
             - name: HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: HOST
-                  name: support-portal-config
-            - name: DB
-              valueFrom:
-                configMapKeyRef:
-                  key: DB
-                  name: support-portal-config
+              value: 172.15.100.146
             - name: USER
-              valueFrom:
-                secretKeyRef:
-                  key: USER
-                  name: support-portal-secret
+              value: support
             - name: PASS
-              valueFrom:
-                secretKeyRef:
-                  key: PASS
-                  name: support-portal-secret
+              value: 2wsx@WSX
+            - name: DB
+              value: supportportal
             - name: APP_HOST
-              value: 'https://vida.cloudsolutions.com.sa/support'
-          image: harbor.cs.local/vidaplus/csi-support-portal-api:v2.1
+              value: 'https://csi.dev.cloudsol.lk/support'
+          image: 'harbor.cs.local/vidaplus/csi-support-portal-api:${parameters.Tag}'
           imagePullPolicy: IfNotPresent
           name: csi-support-portal
           ports:
