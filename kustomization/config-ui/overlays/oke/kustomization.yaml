@@ -11,4 +11,4 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/base-ui
-  newTag: 4.0.7.1
+  newTag: 4.0.18.0
