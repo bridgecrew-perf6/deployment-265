@@ -1,0 +1,113 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csi-phr-base
+  namespace: csi-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csi-phr-base
+      tier: backend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: csi-phr-base
+        module: pharmacy
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - env:
+            - name: configserver
+              valueFrom:
+                configMapKeyRef:
+                  key: config_server
+                  name: service-configs
+            - name: active_profile
+              valueFrom:
+                configMapKeyRef:
+                  key: active_profile
+                  name: service-config-pharmacy
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: pharmacy-db-url
+                  name: service-config-pharmacy
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: pharmacy-db-username
+                  name: service-pharmacy-secret
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: pharmacy-db-password
+                  name: service-pharmacy-secret
+            - name: SPRING_DATASOURCE_JPA_DATABASE_PLATFORM
+              valueFrom:
+                configMapKeyRef:
+                  key: pharmacy-db-platform
+                  name: service-config-pharmacy
+            - name: KAFKA_BOOTSTRAP-SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  key: bootstrap-servers
+                  name: service-config-pharmacy
+            - name: ADT-DISCHARGE-START-NOTIFICATION_T
+              valueFrom:
+                configMapKeyRef:
+                  key: discharge-start-notification
+                  name: service-config-pharmacy
+            - name: KAFKA_TOPIC_DISCHARGE-CLEAR-NOTIFICATION
+              valueFrom:
+                configMapKeyRef:
+                  key: discharge-clear-notification
+                  name: service-config-pharmacy
+            - name: KAFKA_TOPIC_DISCHARGE-SUMMARY-CLEAR-NOTIFICATION
+              valueFrom:
+                configMapKeyRef:
+                  key: discharge-summary-clear-notification
+                  name: service-config-pharmacy
+            - name: AUTH_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  key: phrbase-client-id
+                  name: service-pharmacy-secret
+            - name: AUTH_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: phrbase-client-secret
+                  name: service-pharmacy-secret
+            - name: hostname
+              value: csi-phr-base
+          envFrom:
+            - configMapRef:
+                name: service-configs
+          image: harbor.cs.local/vidaplus/csi-phr-base:4.0.21.59
+          livenessProbe:
+            httpGet:
+              path: /api/v1.0/actuator/health
+              port: http
+            initialDelaySeconds: 1200
+            timeoutSeconds: 10
+          name: csi-phr-base
+          ports:
+            - containerPort: 80
+              name: http
+          readinessProbe:
+            httpGet:
+              path: /api/v1.0/actuator/health
+              port: http
+            initialDelaySeconds: 20
+            timeoutSeconds: 10
+          resources:
+            limits:
+              memory: 2Gi
+            requests:
+              cpu: 50m
+              memory: 1Gi
+      imagePullSecrets:
+        - name: regcred
+
