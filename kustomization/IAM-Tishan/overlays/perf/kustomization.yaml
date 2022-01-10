@@ -14,4 +14,23 @@ images:
 - name: harbor.cs.local/vidaplus/csi-iam
   newTag: 4.2.90.1
 
-namespace: csi-perf
+patchesJson6902:
+  - target:
+      group: ""
+      version: apps/v1
+      kind: Deployment
+      name: csi-iam
+    patch: |-
+      - op: replace
+        path: /metadata/namespace
+        value: csi-perf
+patchesJson6902:
+  - target:
+      group: ""
+      version: v1
+      kind: service
+      name: csi-iam
+    patch: |-
+      - op: replace
+        path: /metadata/namespace
+        value: csi-perf
