@@ -8,6 +8,8 @@ bases:
 
 patchesStrategicMerge:
 - replica-count.yaml
+- Deployment.yaml
+- service.yaml
 
 images:
 - name: harbor.cs.local/vidaplus/csi-iam
