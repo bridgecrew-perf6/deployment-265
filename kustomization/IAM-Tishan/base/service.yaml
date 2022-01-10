@@ -5,6 +5,7 @@ metadata:
   labels:
     app: csi-iam-service
   name: csi-iam-service
+  namespace: csi-dev
 spec:
   ports:
     - name: http
