@@ -10,5 +10,5 @@ patchesStrategicMerge:
 - replica-count.yaml
 
 images:
-- name: harbor.cs.local/vidaplus/ehr-ic-ui
+- name: harbor.cs.local/vidaplus/csi-ie-general
   newTag: 4.1.136.0
