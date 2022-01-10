@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: csi-ehr-ic-ui
+  name: csi-iam
   namespace: csi-perf
 spec:
-  replicas: 1
+  replicas: 2
