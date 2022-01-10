@@ -1,5 +1,0 @@
-resources:
-  - rmsmorguedeployment.yaml
-
-commonLabels:
-  owner: roshan
