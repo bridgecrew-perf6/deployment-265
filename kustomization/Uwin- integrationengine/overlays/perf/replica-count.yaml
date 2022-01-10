@@ -4,4 +4,4 @@ metadata:
   name: csi-support-portal
   namespace: csi-dev
 spec:
-  replicas: 3
+  replicas: 2
