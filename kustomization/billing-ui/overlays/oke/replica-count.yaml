@@ -4,4 +4,4 @@ metadata:
   name: csi-billing-ui
   namespace: vidacom
 spec:
-  replicas: 1
+  replicas: 0

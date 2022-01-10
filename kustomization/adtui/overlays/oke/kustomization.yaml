@@ -9,6 +9,6 @@ bases:
 patchesStrategicMerge:
 - replica-count.yaml
 
-#images:
-#- name: harbor.cs.local/vidaplus/adt-ui
-#  newTag: 4.3.39.0
+images:
+- name: harbor.cs.local/vidaplus/adt-ui
+  newTag: 4.3.41.0

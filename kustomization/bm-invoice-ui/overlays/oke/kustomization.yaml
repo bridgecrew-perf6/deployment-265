@@ -11,4 +11,4 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/bm-invoice-ui
-  newTag: 4.2.49.0
+  newTag: 4.2.61.0

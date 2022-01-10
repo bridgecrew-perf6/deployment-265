@@ -4,4 +4,4 @@ metadata:
   name: cs-net-econsentui
   namespace: vidacom
 spec:
-  replicas: 1
+  replicas: 0

@@ -4,4 +4,4 @@ metadata:
   name: csi-ehr-ic-ui
   namespace: vidacom
 spec:
-  replicas: 1
+  replicas: 0

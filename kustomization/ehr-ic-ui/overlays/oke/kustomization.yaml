@@ -11,4 +11,4 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/ehr-ic-ui
-  newTag: 4.0.21.0
+  newTag: 4.0.24.0
