@@ -15,4 +15,3 @@ images:
 - name: harbor.cs.local/vidaplus/csi-iam
   newTag: 4.2.90.1
 
-namespace: csi-dev
