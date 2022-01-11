@@ -13,3 +13,10 @@ images:
 - name: harbor.cs.local/vidaplus/csi-iam
   newTag: 4.2.90.1
 
+patchesJson6902:
+- target:
+    group: apps
+    version: apps/v1
+    kind: Deployment
+    name: csi-iam
+  path: patch.yaml

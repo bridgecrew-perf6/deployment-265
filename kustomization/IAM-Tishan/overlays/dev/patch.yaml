@@ -1,0 +1,14 @@
+- op: add
+  path: /spec/template/spec/volumes/-
+  value:
+    name: cacerts
+      projected:
+        sources:
+            - secret:
+              name: iam-cacerts-secret
+
+- op: add
+  path: /spec/template/spec/containers/0/volumeMounts/-
+  value:
+    name: cacerts
+    mountPath: /opt/key_files
