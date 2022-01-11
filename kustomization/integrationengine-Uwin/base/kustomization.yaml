@@ -4,4 +4,3 @@ resources:
 - Deployment.yaml
 - service.yaml
 
-namePrefix: kustomize-
