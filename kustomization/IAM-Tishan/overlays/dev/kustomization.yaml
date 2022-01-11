@@ -15,7 +15,6 @@ images:
 
 patchesJson6902:
 - target:
-    group: apps
     version: apps/v1
     kind: Deployment
     name: csi-iam
