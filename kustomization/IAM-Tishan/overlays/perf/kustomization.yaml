@@ -6,8 +6,7 @@ bases:
 #- Deployment.yaml
 #- service.yaml
 
-patchesStrategicMerge:
-- namespace.yaml
+
 images:
 - name: harbor.cs.local/vidaplus/csi-iam
   newTag: 4.2.90.1
