@@ -1,7 +1,7 @@
-#apiVersion: apps/v1
-#kind: Deployment
-#metadata:
-#  name: csi-iam
-#  namespace: csi-dev
-#spec:
-#  replicas: 2
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csi-iam
+  namespace: csi-dev
+spec:
+  replicas: 2
