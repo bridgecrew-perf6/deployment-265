@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-iam
-  namespace: csi-perf
+  namespace: csi-dev
 spec:
   replicas: 1
   selector:
@@ -126,7 +126,7 @@ metadata:
   labels:
     app: csi-iam-service
   name: csi-iam-service
-  namespace: csi-perf
+  namespace: csi-dev
 spec:
   ports:
     - name: http
