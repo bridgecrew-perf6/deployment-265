@@ -11,7 +11,7 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/csi-iam
-  newTag: 4.2.90.1
+  newTag: 0.2.90.0-a1
 
 namespace: vidacom
 patchesJSON6902:
