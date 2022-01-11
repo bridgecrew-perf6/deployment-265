@@ -12,3 +12,25 @@ patchesStrategicMerge:
 images:
 - name: harbor.cs.local/vidaplus/csi-java-ehr-ip-doctor-prescription
   newTag: 4.0.20.2
+
+namespace: csi-perf
+patchesJSON6902:
+- target:
+    version: v1
+    kind: Namespace
+    name: csi-dev
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: csi-perf
+
+namespace: csi-perf
+patchesJSON6902:
+- target:
+    version: apps/v1
+    kind: Namespace
+    name: csi-dev
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: csi-perf
