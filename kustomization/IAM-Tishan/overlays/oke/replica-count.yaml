@@ -4,4 +4,4 @@ metadata:
   name: csi-iam
   namespace: vidacom
 spec:
-  replicas: 0
+  replicas: 2

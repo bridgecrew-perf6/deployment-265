@@ -107,15 +107,6 @@ spec:
             requests:
               cpu: 1500m
               memory: 2Gi
-          volumeMounts:
-            - mountPath: /opt/key_files
-              name: cacerts
       imagePullSecrets:
         - name: regcred
       serviceAccountName: jgroups-kubeping-service-account
-      volumes:
-        - name: cacerts
-          projected:
-            sources:
-              - secret:
-                  name: iam-cacerts-secret

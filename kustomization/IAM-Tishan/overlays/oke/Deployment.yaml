@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-iam
-  namespace: vidacom
+  namespace: csi-perf
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: csi-iam
@@ -27,11 +27,13 @@ spec:
                   key: domain_name
                   name: security-service-configs
             - name: KEYCLOAK_HOSTNAME
-              value: csi.dev.cloudsol.lk
+              value: vidaqa.$(BASE_URL)
             - name: KEYCLOAK_LOGLEVEL
               value: WARN
-            - name: JGROUPS_DISCOVERY_PROTOCOL
-              value: kubernetes.KUBE_PING
+            - name: INFINISPAN_HOST
+              value: infinispan-server-hotrod
+            - name: INFINISPAN_PORT
+              value: '11222'
             - name: KUBERNETES_NAMESPACE
               valueFrom:
                 fieldRef:
@@ -45,16 +47,11 @@ spec:
                 configMapKeyRef:
                   key: KAFKA_BOOTSTRAP_SERVERS
                   name: service-configs
-            - name: apm_server
-              valueFrom:
-                configMapKeyRef:
-                  key: apm_server
-                  name: service-configs
             - name: GROUP_ID_CONFIG
               value: register-1
             - name: JAVA_OPTS
               value: >-
-                -Xms64m -Xmx2g -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m
+                -Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m
                 -XX:+UseG1GC -XX:+UseStringDeduplication
                 -XX:+HeapDumpOnOutOfMemoryError
                 -XX:HeapDumpPath=/opt/jboss/memdump  -XX:+PrintGCDetails
@@ -65,14 +62,6 @@ spec:
                 -Djava.net.preferIPv4Stack=true
                 -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS
                 -Djava.awt.headless=true
-                -Djavax.net.ssl.trustStore=/etc/pki/ca-trust/extracted/java/cacerts
-                -Djavax.net.ssl.trustStorePassword=changeit
-                -Delastic.apm.server_urls=$(apm_server)
-                -Delastic.apm.service_name="csi-iam"
-                -Delastic.apm.disable_instrumentations=""
-                -Delastic.apm.application_packages=com.afrunt
-                -Delastic.apm.environment=$(KUBERNETES_NAMESPACE)
-                -javaagent:/opt/jboss/elastic-apm-agent-1.17.0.jar
             - name: REPORTING_ROUTING_KEY
               value: ''
           envFrom:
@@ -80,7 +69,7 @@ spec:
                 name: iam-service-configs
             - secretRef:
                 name: iam-service-secret
-          image: harbor.cs.local/vidaplus/csi-iam:0.2.90.0-a1
+          image: 'harbor.cs.local/vidaplus/csi-iam:${parameters.Tag}'
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
@@ -102,20 +91,10 @@ spec:
             timeoutSeconds: 10
           resources:
             limits:
-              cpu: 3000m
-              memory: 6Gi
-            requests:
-              cpu: 1500m
               memory: 2Gi
-          volumeMounts:
-            - mountPath: /opt/key_files
-              name: cacerts
+            requests:
+              cpu: 50m
+              memory: 1Gi
       imagePullSecrets:
         - name: regcred
       serviceAccountName: jgroups-kubeping-service-account
-      volumes:
-        - name: cacerts
-          projected:
-            sources:
-              - secret:
-                  name: iam-cacerts-secret

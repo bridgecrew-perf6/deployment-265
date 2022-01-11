@@ -4,4 +4,4 @@ metadata:
   name: csi-iam
   namespace: csi-dev
 spec:
-  replicas: 2
+  replicas: 3
