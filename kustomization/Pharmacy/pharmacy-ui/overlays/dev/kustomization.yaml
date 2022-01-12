@@ -11,4 +11,4 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/pharmacy-ui
-  newTag: 4.0.24.7
+  newTag: 4.0.24.12
