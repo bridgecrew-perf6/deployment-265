@@ -11,4 +11,4 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/csi-ie-general
-  newTag: 4.1.137.4
+  newTag: 4.1.166.0-b11 #4.1.137.4
