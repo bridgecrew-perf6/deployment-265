@@ -11,7 +11,7 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/pharmacy-ui
-  newTag: 4.0.17.0-hf2
+  newTag: 4.0.19.0 #4.0.17.0-hf2
 
 namespace: vidacom
 patchesJSON6902:
