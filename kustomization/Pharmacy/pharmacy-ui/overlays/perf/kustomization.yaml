@@ -11,7 +11,7 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/pharmacy-ui
-  newTag: 4.0.24.14
+  newTag: 4.0.24.15
 
 namespace: csi-perf
 patchesJSON6902:
