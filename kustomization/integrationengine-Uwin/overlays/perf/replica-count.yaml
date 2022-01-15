@@ -4,4 +4,4 @@ metadata:
   name: csi-ie-general
   namespace: csi-perf
 spec:
-  replicas: 2
+  replicas: 1
