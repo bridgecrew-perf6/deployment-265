@@ -1,0 +1,69 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: csi-net-bloodbnk
+  namespace: csi-dev
+spec:
+  replicas: 3
+  strategy:
+    canary:
+      canaryService: csi-net-bloodbnk-canary
+      stableService: csi-net-bloodbnk
+      trafficRouting:
+        smi: { }
+      steps:
+      - setWeight: 20
+      - pause:
+          duration: "60s"
+      - setWeight: 50
+      - pause:
+          duration: "60s"
+      analysis:
+        templates:
+        - templateName: success-rate
+        startingStep: 1 # delay starting analysis run until setWeight: 10%
+        args:
+        - name: service-name
+          value: golang-sample-app
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: csi-net-bloodbnk
+      tier: backend
+      track: stable
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: enabled
+      labels:
+        app: csi-net-bloodbnk
+        module: bloodbank
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  key: net_environment
+                  name: service-configs
+            - name: config_server
+              valueFrom:
+                configMapKeyRef:
+                  key: config_server
+                  name: service-configs
+          image: harbor.cs.local/vidaplus/bb-donation-srv:4.1.6.0
+          imagePullPolicy: IfNotPresent
+          name: csi-net-bloodbnk
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            limits:
+              memory: 750Mi
+            requests:
+              cpu: 50m
+              memory: 750Mi
+      imagePullSecrets:
+        - name: regcred
