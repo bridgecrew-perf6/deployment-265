@@ -14,14 +14,14 @@ spec:
       steps:
         - setWeight: 10
         - pause:
-            duration: "3m"
+            duration: "5m"
         - setWeight: 50
         - pause:
-            duration: "60s"
+            duration: "3m"
       analysis:
         templates:
           - templateName: success-rate
-        startingStep: 2 # delay starting analysis run until setWeight: 10%
+        startingStep: 4 # delay starting analysis run until setWeight: 10%
         args:
           - name: service-name
             value: golang-sample-app
