@@ -3,12 +3,12 @@ kind: Kustomization
 bases:
 - ../../base
 #resources:
-#- Deployment.yaml
-#- service.yaml
+#- rollout-csi-bloodbank-ui.yaml
+#- rollout-csi-bloodbank-ui-service.yaml
 
 patchesStrategicMerge:
 - replica-count.yaml
 
 images:
-- name: harbor.cs.local/vidaplus/pharmacy-ui
-  newTag: 4.0.24.2
+- name: harbor.cs.local/vidaplus/bloodbank-ui
+  newTag: 4.1.11.11

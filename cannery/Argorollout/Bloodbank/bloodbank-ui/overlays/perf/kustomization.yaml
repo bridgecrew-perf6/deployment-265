@@ -3,8 +3,8 @@ kind: Kustomization
 bases:
 - ../../base
 #resources:
-#- Deployment.yaml
-#- service.yaml
+#- rollout-csi-bloodbank-ui.yaml
+#- rollout-csi-bloodbank-ui-rollout-csi-bloodbank-ui-service.yaml
 
 patchesStrategicMerge:
 - replica-count.yaml
