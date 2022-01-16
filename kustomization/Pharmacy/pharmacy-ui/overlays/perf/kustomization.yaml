@@ -10,8 +10,8 @@ patchesStrategicMerge:
 - replica-count.yaml
 
 images:
-- name: harbor.cs.local/vidaplus/csi-phr-base
-  newTag: 4.0.22.51
+- name: harbor.cs.local/vidaplus/pharmacy-ui
+  newTag: 4.0.23.13
 
 namespace: csi-perf
 patchesJSON6902:
