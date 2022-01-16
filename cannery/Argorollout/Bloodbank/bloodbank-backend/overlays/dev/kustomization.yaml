@@ -11,4 +11,4 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/bb-donation-srv
-  newTag:  4.1.5.0 #4.1.6.0
+  newTag:  4.1.6.0 #4.1.5.0
