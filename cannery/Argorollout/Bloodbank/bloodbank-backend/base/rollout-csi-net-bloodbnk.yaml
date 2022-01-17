@@ -56,6 +56,12 @@ spec:
                 configMapKeyRef:
                   key: config_server
                   name: service-configs
+            - name: GRPC_PORT
+              value: "8080"
+            - name: PROM_PORT
+              value: "8801"
+            - name: OC_AGENT_HOST 
+              value: collector.linkerd-jaeger:55678      
           image: harbor.cs.local/vidaplus/bb-donation-srv:4.1.6.0
           imagePullPolicy: IfNotPresent
           name: csi-net-bloodbnk
