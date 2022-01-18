@@ -14,7 +14,7 @@ spec:
       steps:
       - setWeight: 20
       - pause:
-          duration: "30s"
+          duration: "2m"
       - setWeight: 30
       - pause:
           duration: "60s"
@@ -24,7 +24,7 @@ spec:
       analysis:
         templates:
         - templateName: success-rate
-        startingStep: 2 # delay starting analysis run until setWeight: 10%
+        startingStep: 4 # delay starting analysis run until setWeight: 10%
         args:
         - name: service-name
           value: golang-sample-app
@@ -56,6 +56,12 @@ spec:
                 configMapKeyRef:
                   key: config_server
                   name: service-configs
+            - name: GRPC_PORT
+              value: "8080"
+            - name: PROM_PORT
+              value: "8801"
+            - name: OC_AGENT_HOST 
+              value: collector.linkerd-jaeger:55678      
           image: harbor.cs.local/vidaplus/bb-donation-srv:4.1.6.0
           imagePullPolicy: IfNotPresent
           name: csi-net-bloodbnk

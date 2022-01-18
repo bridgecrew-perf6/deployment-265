@@ -12,20 +12,20 @@ spec:
       trafficRouting:
         smi: { }
       steps:
-        - setWeight: 20
+        - setWeight: 10
         - pause:
-            duration: "60s"
+            duration: "5m"
         - setWeight: 50
         - pause:
-            duration: "60s"
+            duration: "3m"
       analysis:
         templates:
           - templateName: success-rate
-        startingStep: 1 # delay starting analysis run until setWeight: 10%
+        startingStep: 3 # delay starting analysis run until setWeight: 10%
         args:
           - name: service-name
             value: golang-sample-app
-    revisionHistoryLimit: 2
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: csi-phr-base
