@@ -11,4 +11,4 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/csi-java-ehr-ip-doctor-prescription
-  newTag: 4.0.20.2
+  newTag: 4.0.20.0
