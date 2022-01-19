@@ -7,8 +7,8 @@ bases:
 #- rollout-csi-bloodbank-ui-rollout-csi-net-bloodbnk-service.yaml
 
 patchesStrategicMerge:
-- replica-count1.yaml
+- replica-count.yaml
 
 images:
 - name: harbor.cs.local/vidaplus/csi-java-ehr-ip-doctor-prescription
-  newTag: 4.0.20.2
+  newTag: 4.0.20.2 #4.0.20.0

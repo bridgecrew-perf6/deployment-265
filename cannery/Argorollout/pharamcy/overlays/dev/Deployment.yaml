@@ -25,7 +25,6 @@ spec:
         args:
           - name: service-name
             value: golang-sample-app
-    revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: csi-phr-base

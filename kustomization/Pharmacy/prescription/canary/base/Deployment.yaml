@@ -7,8 +7,8 @@ spec:
   replicas: 1
   strategy:
     canary:
-      canaryService: csi-phr-base-canary
-      stableService: csi-phr-base
+      canaryService: csi-java-ehr-ip-doctor-prescription-canary
+      stableService: csi-java-ehr-ip-doctor-prescription
       trafficRouting:
         smi: { }
       steps:
@@ -21,11 +21,10 @@ spec:
       analysis:
         templates:
           - templateName: success-rate
-        startingStep: 3 # delay starting analysis run until setWeight: 10%
+        startingStep: 2 # delay starting analysis run until setWeight: 10%
         args:
           - name: service-name
             value: golang-sample-app
-  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: csi-java-ehr-ip-doctor-prescription
