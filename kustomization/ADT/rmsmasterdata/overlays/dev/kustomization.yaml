@@ -11,4 +11,4 @@ patchesStrategicMerge:
 
 images:
 - name: harbor.cs.local/vidaplus/csi-rms-masterdata-java-sev
-  newTag: 4.1.19.0 #4.1.21.0
+  newTag: 4.1.21.0 #4.1.19.0 #4.1.21.0
