@@ -9,6 +9,11 @@ spec:
     canary:
       canaryService: csi-pms-rms-masterdata-canary
       stableService: csi-pms-rms-masterdata
+      canaryMetadata:
+        annotations:
+          role: canary
+        labels:
+          role: canary
       trafficRouting:
         smi: { }
       steps:
