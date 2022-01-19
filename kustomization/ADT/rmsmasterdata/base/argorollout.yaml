@@ -24,7 +24,7 @@ spec:
         startingStep: 3 # delay starting analysis run until setWeight: 10%
         args:
           - name: service-name
-            value: golang-sample-app
+            value: csi-rms-masterdata
   selector:
     matchLabels:
       app: csi-rms-masterdata
