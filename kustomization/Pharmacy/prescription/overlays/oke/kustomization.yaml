@@ -3,11 +3,11 @@ kind: Kustomization
 bases:
 - ../../base
 #resources:
-#- Deployment.yaml
-#- service.yaml
+#- rollout-csi-net-bloodbnk.yaml
+#- rollout-csi-bloodbank-ui-rollout-csi-net-bloodbnk-service.yaml
 
 patchesStrategicMerge:
-- replica-count.yaml
+- replica-count1.yaml
 
 images:
 - name: harbor.cs.local/vidaplus/csi-java-ehr-ip-doctor-prescription

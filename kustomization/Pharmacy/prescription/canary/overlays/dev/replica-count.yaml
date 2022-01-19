@@ -1,0 +1,7 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: csi-java-ehr-ip-doctor-prescription
+  namespace: csi-dev
+spec:
+  replicas: 1
