@@ -24,10 +24,10 @@ spec:
       analysis:
         templates:
           - templateName: success-rate
-        startingStep: 3 # delay starting analysis run until setWeight: 10%
+        startingStep: 2 # delay starting analysis run until setWeight: 10%
         args:
           - name: service-name
-            value: golang-sample-app
+            value: csi-phr-base
   revisionHistoryLimit: 2
   selector:
     matchLabels:
