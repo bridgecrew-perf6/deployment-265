@@ -9,22 +9,28 @@ spec:
     canary:
       canaryService: csi-pms-rms-masterdata-canary
       stableService: csi-pms-rms-masterdata
+      canaryMetadata:
+        annotations:
+          role: canary
+        labels:
+          role: canary
       trafficRouting:
         smi: { }
       steps:
-        - setWeight: 10
+        - setWeight: 20
         - pause:
-            duration: "2m"
+            duration: "30s"
         - setWeight: 50
         - pause:
-            duration: "3m"
+            duration: "30s"
       analysis:
         templates:
           - templateName: success-rate
         startingStep: 2 # delay starting analysis run until setWeight: 10%
         args:
           - name: service-name
-            value: golang-sample-app
+            value: csi-rms-masterdata
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: csi-rms-masterdata
@@ -37,6 +43,10 @@ spec:
         module: rms
         tier: backend
         track: stable
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "9090"
     spec:
       containers:
         - env:
