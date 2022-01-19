@@ -17,16 +17,19 @@ spec:
       trafficRouting:
         smi: { }
       steps:
-        - setWeight: 10
+        - setWeight: 20
         - pause:
             duration: "30s"
-        - setWeight: 50
+        - setWeight: 40
+        - pause:
+            duration: "30s"
+        - setWeight: 60
         - pause:
             duration: "30m"
       analysis:
         templates:
           - templateName: success-rate
-        startingStep: 3 # delay starting analysis run until setWeight: 10%
+        startingStep: 2 # delay starting analysis run until setWeight: 10%
         args:
           - name: service-name
             value: csi-rms-masterdata
