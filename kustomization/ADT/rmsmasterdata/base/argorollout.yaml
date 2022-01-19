@@ -25,6 +25,7 @@ spec:
         args:
           - name: service-name
             value: csi-rms-masterdata
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: csi-rms-masterdata
