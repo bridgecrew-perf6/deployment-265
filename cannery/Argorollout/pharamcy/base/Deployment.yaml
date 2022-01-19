@@ -14,7 +14,7 @@ spec:
       steps:
         - setWeight: 10
         - pause:
-            duration: "5m"
+            duration: "2m"
         - setWeight: 30
         - pause:
             duration: "2m"
