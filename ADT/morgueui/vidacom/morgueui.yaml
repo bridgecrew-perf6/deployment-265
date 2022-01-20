@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: 'harbor.cs.local/vidaplus/morgue-ui:${ parameters.Tag }'
+        - image: harbor.cs.local/vidaplus/morgue-ui:4.1.0.4
           imagePullPolicy: Always
           name: csi-morgue-ui
           ports:

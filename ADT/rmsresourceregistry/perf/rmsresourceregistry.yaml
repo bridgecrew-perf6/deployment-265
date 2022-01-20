@@ -59,8 +59,7 @@ spec:
             - secretRef:
                 name: service-adt-secret
           image: >-
-            harbor.cs.local/vidaplus/csi-rms-resource-registry-java-sev:${
-            parameters.Tag }
+            harbor.cs.local/vidaplus/csi-rms-resource-registry-java-sev:4.1.14.0
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:

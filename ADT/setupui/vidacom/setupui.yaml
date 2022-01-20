@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: 'harbor.cs.local/vidaplus/setup-ui:${parameters.Tag}'
+        - image: harbor.cs.local/vidaplus/setup-ui:4.9.2.0
           imagePullPolicy: IfNotPresent
           name: csi-setup-ui
           ports:

@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: 'harbor.cs.local/vidaplus/rms-ui:${ parameters.Tag }'
+        - image: harbor.cs.local/vidaplus/rms-ui:4.7.8.2-hf1
           imagePullPolicy: Always
           name: csi-rms-ui
           ports:

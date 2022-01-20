@@ -44,8 +44,7 @@ spec:
             - secretRef:
                 name: service-adt-secret
           image: >-
-            harbor.cs.local/vidaplus/csi-ds-dental-core-java-sev:${
-            parameters.Tag }
+            harbor.cs.local/vidaplus/csi-ds-dental-core-java-sev:4.1.0.0
           imagePullPolicy: IfNotPresent
           name: csi-java-ds-dental-core
           ports:

@@ -78,8 +78,7 @@ spec:
             - secretRef:
                 name: service-adt-secret
           image: >-
-            harbor.cs.local/vidaplus/csi-rms-masterdata-java-sev:${
-            parameters.Tag }
+            harbor.cs.local/vidaplus/csi-rms-masterdata-java-sev:4.1.8.0-hf1
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
