@@ -69,7 +69,7 @@ spec:
                 name: iam-service-configs
             - secretRef:
                 name: iam-service-secret
-          image: 'harbor.cs.local/vidaplus/csi-iam:${parameters.Tag}'
+          image: harbor.cs.local/vidaplus/csi-iam:4.2.90.1
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
