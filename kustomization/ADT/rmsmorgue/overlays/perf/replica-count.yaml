@@ -2,6 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-rms-morgue
-  namespace: csi-perf
+  namespace: csi-dev
 spec:
   replicas: 3
