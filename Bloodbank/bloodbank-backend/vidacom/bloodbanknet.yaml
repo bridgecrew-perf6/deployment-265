@@ -30,7 +30,7 @@ spec:
                 configMapKeyRef:
                   key: config_server
                   name: service-configs
-          image: 'harbor.cs.local/vidaplus/bb-donation-srv:${ parameters.Tag }'
+          image: harbor.cs.local/vidaplus/bb-donation-srv:4.1.4.1
           imagePullPolicy: IfNotPresent
           name: csi-net-bloodbnk
           ports:

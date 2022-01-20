@@ -86,7 +86,7 @@ spec:
               value: 'true'
             - name: spring_jpa_show-sql
               value: 'true'
-          image: 'harbor.cs.local/vidaplus/csi-java-bb-service:${parameters.Tag }'
+          image: harbor.cs.local/vidaplus/csi-java-bb-service:4.1.6.1
           livenessProbe:
             httpGet:
               path: /api/actuator/health

@@ -18,7 +18,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: 'harbor.cs.local/vidaplus/bloodbank-ui:${parameters.Tag}'
+        - image: harbor.cs.local/vidaplus/bloodbank-ui:4.1.13.0
           imagePullPolicy: IfNotPresent
           name: csi-bloodbank-ui
           ports:
