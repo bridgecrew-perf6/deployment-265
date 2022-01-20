@@ -7,7 +7,7 @@ bases:
 #- rollout-csi-bloodbank-ui-rollout-csi-net-bloodbnk-service.yaml
 
 patchesStrategicMerge:
-- replica-count.yaml
+- replica-count1.yaml
 
 images:
 - name: harbor.cs.local/vidaplus/csi-phr-base

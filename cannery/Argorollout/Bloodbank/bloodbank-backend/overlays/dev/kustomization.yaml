@@ -3,11 +3,11 @@ kind: Kustomization
 bases:
 - ../../base
 #resources:
-#- Deployment.yaml
+#- Deployment1.yaml
 #- service.yaml
 
 patchesStrategicMerge:
-- replica-count.yaml
+- replica-count1.yaml
 
 images:
 - name: harbor.cs.local/vidaplus/bb-donation-srv

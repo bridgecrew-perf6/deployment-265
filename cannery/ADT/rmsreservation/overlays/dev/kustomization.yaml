@@ -7,8 +7,8 @@ bases:
 #- rollout-csi-bloodbank-ui-rollout-csi-net-bloodbnk-service.yaml
 
 patchesStrategicMerge:
-- replica-count1.yaml
+- replica-count.yaml
 
 images:
-- name: harbor.cs.local/vidaplus/csi-phr-base
-  newTag: 4.0.19.0 #4.0.22.82 #4.0.22.80 #4.0.22.77 #4.0.22.74 #4.0.22.77 #4.0.22.74 #4.0.22.49 #4.0.22.51 #4.0.22.49 #4.0.22.51
+- name: harbor.cs.local/vidaplus/csi-rms-morgue-java-service
+  newTag: 4.1.1.0-a84
