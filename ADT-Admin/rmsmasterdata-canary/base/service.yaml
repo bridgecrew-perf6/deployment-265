@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csi-pms-rms-masterdata
+  name: csi-pms-rms-masterdata-canary
+  namespace: csi-dev
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: csi-rms-masterdata
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csi-pms-rms-masterdata
+  name: csi-pms-rms-masterdata
+  namespace: csi-dev
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: csi-rms-masterdata
+  type: ClusterIP

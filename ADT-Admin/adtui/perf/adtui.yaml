@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csi-adt-ui
+  namespace: csi-perf
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: csi-adt-ui
+      tier: frontend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: csi-adt-ui
+        module: adt
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - image: harbor.cs.local/vidaplus/adt-ui:4.3.56.0
+          imagePullPolicy: IfNotPresent
+          name: csi-adt-ui
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            limits:
+              memory: 100Mi
+            requests:
+              cpu: 2m
+              memory: 25Mi
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: csi-adt-ui-service
+  name: csi-adt-ui-service
+  namespace: csi-perf
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: csi-adt-ui
+  type: ClusterIP
