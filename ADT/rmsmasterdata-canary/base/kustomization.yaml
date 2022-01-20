@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
 - Deployment.yaml
 - service.yaml
-- AnalysisTemplate.yaml
 
