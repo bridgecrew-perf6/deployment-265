@@ -1,0 +1,37 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../../base
+#resources:
+#- rollout-csi-net-bloodbnk.yaml
+#- rollout-csi-bloodbank-ui-rollout-csi-net-bloodbnk-service.yaml
+
+patchesStrategicMerge:
+- replica-count.yaml
+- Deployment-perf.yaml
+
+images:
+- name: harbor.cs.local/vidaplus/csi-rms-morgue-java-service
+  newTag: 4.1.1.0-a82
+
+namespace: csi-perf
+patchesJSON6902:
+- target:
+    version: v1
+    kind: Namespace
+    name: csi-dev
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: csi-perf
+
+namespace: csi-perf
+patchesJSON6902:
+- target:
+    version: argoproj.io/v1alpha1
+    kind: Namespace
+    name: csi-dev
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: csi-perf
