@@ -28,7 +28,7 @@ patchesJSON6902:
 namespace: csi-perf
 patchesJSON6902:
 - target:
-    version: argoproj.io/v1alpha1
+    version: apps/v1
     kind: Namespace
     name: csi-dev
   patch: |-

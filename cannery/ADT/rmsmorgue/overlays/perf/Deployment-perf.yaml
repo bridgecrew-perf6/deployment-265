@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-rms-morgue
-  namespace: csi-perf
+  namespace: csi-dev
 spec:
   replicas: 3
   selector:
@@ -63,8 +63,7 @@ spec:
             - secretRef:
                 name: service-adt-secret
           image: >-
-            harbor.cs.local/vidaplus/csi-rms-morgue-java-service:${
-            parameters.Tag }
+            harbor.cs.local/vidaplus/csi-rms-morgue-java-service:4.1.1.0-a82
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
@@ -92,4 +91,5 @@ spec:
               memory: 1Gi
       imagePullSecrets:
         - name: regcred
+
 
