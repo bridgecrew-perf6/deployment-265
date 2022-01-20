@@ -18,7 +18,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: harbor.cs.local/vidaplus/pharmacy-ui:${parameters.Tag}'
+        - image: harbor.cs.local/vidaplus/pharmacy-ui:4.0.24.6
           imagePullPolicy: IfNotPresent
           name: csi-pharmacy-ui
           ports:
@@ -32,17 +32,3 @@ spec:
               memory: 256Mi
       imagePullSecrets:
         - name: regcred
----
-kind: Service
-metadata:
-  labels:
-    app: csi-pharmacy-ui-service
-  name: csi-pharmacy-ui-service
-  namespace: csi-dev
-spec:
-  ports:
-    - port: 80
-      targetPort: 80
-  selector:
-    app: csi-pharmacy-ui
-  type: ClusterIP
