@@ -1,3 +1,4 @@
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: csi-java-ehr-ip-doctor-prescription
@@ -98,6 +99,7 @@ spec:
       imagePullSecrets:
         - name: regcred
 ---
+apiVersion: v1
 kind: Service
 metadata:
   labels:
