@@ -8,17 +8,18 @@ spec:
   selector:
     matchLabels:
       app: Healthcare-app
-      tier: backend
+      tier: frontend
       track: stable
   template:
     metadata:
       labels:
         app: Healthcare-app
-        tier: backend
+        module: pharmacy
+        tier: frontend
         track: stable
     spec:
       containers:
-          image: johnolami/medblocks-healthcare
+        - image: johnolami/medblocks-healthcare
           imagePullPolicy: IfNotPresent
           name: Healthcare-app
           ports:
@@ -26,7 +27,7 @@ spec:
               name: http
           resources:
             limits:
-              memory: 750Mi
+              memory: 1Gi
             requests:
-              cpu: 50m
-              memory: 750Mi
+              cpu: 25m
+              memory: 256Mi
