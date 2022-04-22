@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Healthcare-app
+  namespace: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Healthcare-app
+      tier: backend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: Healthcare-app
+        tier: backend
+        track: stable
+    spec:
+      containers:
+          image: johnolami/medblocks-healthcare
+          imagePullPolicy: IfNotPresent
+          name: Healthcare-app
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            limits:
+              memory: 750Mi
+            requests:
+              cpu: 50m
+              memory: 750Mi
