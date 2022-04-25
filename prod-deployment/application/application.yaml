@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: lexuanthinh/pharmacy-user:5.2 #velickotam/healthcaresystem:vue_latest
+        - image: xabarilcoding/healthchecksui:latest #velickotam/healthcaresystem:vue_latest
           imagePullPolicy: IfNotPresent
           name: healthcare-app-ui
           ports:
