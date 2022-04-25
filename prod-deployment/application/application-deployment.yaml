@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: harbor.cs.local/vidaplus/rms-ui:4.7.33.0 #velickotam/healthcaresystem:vue_latest
+        - image: cemusapedocker/pharmacyweb:1.2151.0-develop #velickotam/healthcaresystem:vue_latest
           imagePullPolicy: IfNotPresent
           name: healthcare-app-ui
           ports:
