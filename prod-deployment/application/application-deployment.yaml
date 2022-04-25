@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: marijakljestan/pharmacy:latest #velickotam/healthcaresystem:vue_latest
+        - image: tech.harbor.sa/techplus/rms:1.1 #velickotam/healthcaresystem:vue_latest
           imagePullPolicy: IfNotPresent
           name: healthcare-app-ui
           ports:
