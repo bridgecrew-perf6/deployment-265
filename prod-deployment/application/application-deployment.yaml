@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: njagi13/dockeraspnetcoredemo:latest #velickotam/healthcaresystem:vue_latest
+        - image: screwedpanda/flask-cookies:latest #velickotam/healthcaresystem:vue_latest
           imagePullPolicy: IfNotPresent
           name: healthcare-app-ui
           ports:
