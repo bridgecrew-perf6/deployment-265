@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.org/proxy-connect-timeout: 60s
+    nginx.org/proxy-read-timeout: 60s
+  name: gateway-ingress
+  namespace: prod-tech
+spec:
+  rules:
+  - host: tech.medical.sa
+    http:
+      paths:
+      - backend:
+          service:
+            name: healthcare-app-ui
+            port:
+              number: 80
+        path:
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - tech.medical.sa
+    secretName: health.tech.solution.com

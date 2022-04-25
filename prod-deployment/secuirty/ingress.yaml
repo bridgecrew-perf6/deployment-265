@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: umm-ingress
+  namespace: prod-tech
+spec:
+  rules:
+  - host: securitytech.medical.sa
+    http:
+      paths:
+      - backend:
+          service:
+            name: keycloak
+            port:
+              number: 8080
+        path: /(.*)
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - securitytech.medical.sa
+    secretName: health.tech.solution.com
