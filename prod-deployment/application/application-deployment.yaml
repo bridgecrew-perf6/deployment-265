@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: suraj01r/pharmacy-portal:noEurekaw #velickotam/healthcaresystem:vue_latest
+        - image: tech.harbor.sa/techplus/e-consent-ui:1.1 #velickotam/healthcaresystem:vue_latest
           imagePullPolicy: IfNotPresent
           name: healthcare-app-ui
           ports:
