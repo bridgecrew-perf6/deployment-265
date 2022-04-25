@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: vaadin/k8s-demo-app:3.0 #velickotam/healthcaresystem:vue_latest
+        - image: codexrems/pharmacy-information-system:latest #velickotam/healthcaresystem:vue_latest
           imagePullPolicy: IfNotPresent
           name: healthcare-app-ui
           ports:
@@ -31,6 +31,8 @@ spec:
             requests:
               cpu: 25m
               memory: 256Mi
+      imagePullSecrets:
+        - name: regcred
 ---
 apiVersion: v1
 kind: Service
