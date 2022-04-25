@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: screwedpanda/flask-cookies:latest #velickotam/healthcaresystem:vue_latest
+        - image: suraj01r/pharmacy-portal:noEureka-new #velickotam/healthcaresystem:vue_latest
           imagePullPolicy: IfNotPresent
           name: healthcare-app-ui
           ports:
