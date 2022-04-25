@@ -19,7 +19,7 @@ spec:
         track: stable
     spec:
       containers:
-        - image: xabarilcoding/healthchecksui:latest #velickotam/healthcaresystem:vue_latest
+        - image: xabarilcoding/healthchecksui:5.0.0 #velickotam/healthcaresystem:vue_latest
           imagePullPolicy: IfNotPresent
           name: healthcare-app-ui
           ports:
